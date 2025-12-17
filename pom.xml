@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>lucene_projet</artifactId>
+    <artifactId>lucene_project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -70,7 +70,7 @@
             <version>8.0.32</version>
         </dependency>
 
-        <!-- IK中文分词器 - Elasticsearch的中文分词插件，这里可能用于Lucene的中文分词 -->
+        <!-- IK中文分词器 - 用于Lucene的中文分词 -->
         <dependency>
             <groupId>org.wltea.ik-analyzer</groupId>
             <artifactId>ik-analyzer</artifactId>

@@ -2,6 +2,7 @@ package org.example.dao.impl;
 
 import org.example.dao.SkuDao;
 import org.example.entity.Sku;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +10,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class SkuDaoImpl implements SkuDao {
+
     @Override
     public List<Sku> selectAll() {
+
+        ResourceBundle bundle = ResourceBundle.getBundle("db");
+        String url = bundle.getString("jdbc.url");
+        String driver = bundle.getString("jdbc.driver");
+        String username = bundle.getString("jdbc.username");
+        String password = bundle.getString("jdbc.password");
+
         // 获取连接
         Connection connection = null;
         // 获取预处理语句对象
@@ -24,11 +34,11 @@ public class SkuDaoImpl implements SkuDao {
 
         try {
             // 加载驱动
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(driver);
             // 获取连接
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/test_lucene?serverTimezone=Asia/Shanghai",
-                    "root", "root");
+                    url,
+                    username, password);
             // 获取预处理语句对象
             statement = connection.prepareStatement("select * from tb_sku");
             // 执行查询

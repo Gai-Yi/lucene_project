@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import java.util.List;
 
+
 public class TestSelect {
+
     @Test
     public void testSelectAll() {
         SkuDao skuDao = new SkuDaoImpl();
